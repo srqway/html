@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div id="contentDivId">這是內容</div>
+	<button id="copyBtnId">copy to clipboard</button>
+</body>
+<script type="text/javascript">
+	document.getElementById("copyBtnId").addEventListener('click', function() {
+		var range;
+		var selection;
+		var contentDiv = document.getElementById("contentDivId");
+		var text;
+		if (document.body.createTextRange) {
+			range = document.body.createTextRange();
+			range.moveToElementText(contentDiv);
+			range.select();
+		} else if (window.getSelection) {
+			selection = window.getSelection();
+			range = document.createRange();
+			range.selectNodeContents(contentDiv);
+			selection.removeAllRanges();
+			selection.addRange(range);
+		}
+		document.execCommand("copy");
+		alert("copied to clipboard.");
+	});
+
+</script>
+</html>
