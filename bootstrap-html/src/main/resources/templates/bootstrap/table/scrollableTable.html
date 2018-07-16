@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+<style type="text/css">
+.table-fixed thead {
+	width: 97%;
+}
+
+.table-fixed tbody {
+	height: 230px;
+	overflow-y: auto;
+	width: 100%;
+}
+
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td,
+	.table-fixed th {
+	display: block;
+}
+
+.table-fixed tbody td, .table-fixed tbody th {
+	float: left;
+	border-bottom-width: 0;
+}
+</style>
+<script src="/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+<script
+	src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<table class="table table-fixed">
+		<thead>
+			<tr>
+				<th class="col-xs-3">integer value</th>
+				<th class="col-xs-3">float value</th>
+				<th class="col-xs-6">date value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="data : ${datas}">
+				<td class="col-xs-3" th:text="${data.integerValue}">???</td>
+				<td class="col-xs-3" th:text="${data.floatValue}">???</td>
+				<td class="col-xs-6" th:text="${data.dateValue}">???</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

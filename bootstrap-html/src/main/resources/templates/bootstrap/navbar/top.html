@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+<script src="/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+<script
+	src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+			<p class="navbar-text navbar-left">Text</p>
+		</div>
+	</nav>
+	<div th:each="i : ${#numbers.sequence(0, 100)}" th:text="${i}">???</div>
+</body>
+</html>
