@@ -142,6 +142,11 @@ public class BootstrapController {
 		return "bootstrap/modal/closeModalAndOpenOtherModal";
 	}
 
+	@RequestMapping(value = "/alert/index", method = RequestMethod.GET)
+	public String alert() {
+		return "bootstrap/alert/index";
+	}
+
 	private List<Data> generateDatas(int size) {
 		List<Data> datas = new ArrayList<Data>(size);
 		for (int i = 0; i < size; ++i) {

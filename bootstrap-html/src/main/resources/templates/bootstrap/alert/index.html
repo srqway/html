@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+<script src="/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+<script src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h2>basic</h2>
+	<div class="alert alert-success">success</div>
+	<div class="alert alert-info">info</div>
+	<div class="alert alert-warning">warning</div>
+	<div class="alert alert-danger">danger</div>
+	<hr>
+	<h2>dismissible</h2>
+	<div class="alert alert-success alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		success
+	</div>
+	<div class="alert alert-info alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		info
+	</div>
+	<div class="alert alert-warning alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		warning
+	</div>
+	<div class="alert alert-danger alert-dismissible">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		danger
+	</div>
+	<hr>
+	<h2>dismissible fade in out</h2>
+	<div class="alert alert-success alert-dismissible fade in">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		success
+	</div>
+	<div class="alert alert-info alert-dismissible fade in">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		info
+	</div>
+	<div class="alert alert-warning alert-dismissible fade in">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		warning
+	</div>
+	<div class="alert alert-danger alert-dismissible fade in">
+		<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		danger
+	</div>
+	<h2>auto fade out</h2>
+	<div id="autoFadeOutMessage" class="alert alert-danger" style="display: none;">
+		auto fade out message
+	</div>
+	<button id="autoFadeOutBtn" type="button" class="btn btn-danger">show message</button>
+</body>
+<script type="text/javascript">
+$(function() {
+	$("#autoFadeOutBtn").on("click", function() {
+		$("#autoFadeOutMessage").fadeTo(2000, 1000).slideUp(500, function(){
+			$message.slideUp(500);
+		});
+	});
+});
+</script>
+</html>
