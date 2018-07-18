@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+<link rel="stylesheet"
+	href="/Font-Awesome-master/css/font-awesome.min.css">
+<script src="/jquery-2.1.4/jquery-2.1.4.min.js"></script>
+<script src="/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal"
+			data-target="#myModal">open modal</button>
+		<div class="modal fade" id="myModal" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<a class="fa fa-clipboard clipboard" aria-hidden="true" style="float: right;"></a>
+						<h4 class="modal-title">modal header</h4>
+					</div>
+					<div id="content" class="modal-body">
+						<p>modal body</p>
+						<p id="notCopy" style="color: red;">not copy</p>
+						<p>modal body</p>
+						<p>modal body</p>
+						<p>modal body</p>
+						<p>modal body</p>
+						<p>modal body</p>
+						<p>modal body</p>
+						<p>modal body</p>
+						<p>modal body</p>
+						<p>modal body</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+$(function() {
+	$.fn.modal.Constructor.prototype.enforceFocus = function() {};
+	$('.clipboard').tooltip({title: "已複製到剪貼簿", trigger: "click", placement: "auto"})
+	.on('show.bs.tooltip', function(){
+		var range;
+		var selection;
+		var contentDiv = document.getElementById("content");
+		var notCopy = $("#notCopy");
+		notCopy.hide();
+		if (document.body.createTextRange) {
+			range = document.body.createTextRange();
+			range.moveToElementText(contentDiv);
+			range.select();
+		} else if (window.getSelection) {
+			selection = window.getSelection();
+			range = document.createRange();
+			range.selectNodeContents(contentDiv);
+			selection.removeAllRanges();
+			selection.addRange(range);
+		}
+		document.execCommand("copy");
+		notCopy.show();
+    })
+});
+</script>
+</html>

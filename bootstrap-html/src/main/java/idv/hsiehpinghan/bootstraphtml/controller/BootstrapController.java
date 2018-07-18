@@ -142,6 +142,11 @@ public class BootstrapController {
 		return "bootstrap/modal/closeModalAndOpenOtherModal";
 	}
 
+	@RequestMapping(value = "/modal/copyModalText", method = RequestMethod.GET)
+	public String copyModalText() {
+		return "bootstrap/modal/copyModalText";
+	}
+	
 	@RequestMapping(value = "/alert/index", method = RequestMethod.GET)
 	public String alert() {
 		return "bootstrap/alert/index";
