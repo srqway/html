@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="/leaflet/leaflet.css" />
+<script src="/leaflet/leaflet.js"></script>
+</head>
+<body>
+	<div id="mapid" style="width: 100%; height: 400px;"></div>
+	<script>
+		var latitude = 25.0616509;
+		var longitude = 121.6039325;
+		var zoom = 13;
+		var mymap = L.map('mapid').setView([latitude, longitude], zoom);
+		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiaHNpZWhwaW5naGFuIiwiYSI6ImNqanRxaWE2YTAzeWYzdnF1ejVtZXRxa2EifQ.uU23cf-VDsp2GefncgMGug', {
+			maxZoom: 18,
+			id: 'mapbox.streets'
+		}).addTo(mymap);
+		
+		var polygon = L.polygon([
+		    [25.06, 121.6],
+		    [25.07, 121.7],
+		    [25.075, 121.65]
+		], {
+		    color: 'red',
+		    fillColor: '#f03',
+		    fillOpacity: 0.5
+		}).addTo(mymap);
+		polygon.bindPopup("<b>this is a poygon</b>").openPopup();
+	</script>
+</body>
+</html>
