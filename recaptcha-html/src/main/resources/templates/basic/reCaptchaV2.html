@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<form action="" method="post" th:action="@{/basic/}">
+		<div class="g-recaptcha" data-sitekey="6Lf3BmgUAAAAAONcBCoYUxxE-6dB4YrO4aUujHVq"></div>	
+		<br>
+		<input type="submit">
+	</form>
+</body>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script type="text/javascript">
+	var onloadCallback = function() {
+		alert("grecaptcha is ready!");
+	};
+</script>
+</html>
