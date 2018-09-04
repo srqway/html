@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	is resized : <span id="isResized">???</span>
+</body>
+<script type="text/javascript">
+	var waitForFinalEvent = (function() {
+		var timers = {};
+		return function(callback, ms, uniqueId) {
+			if (timers[uniqueId]) {
+				clearTimeout(timers[uniqueId]);
+			}
+			timers[uniqueId] = setTimeout(callback, ms);
+		};
+	})();
+	window.addEventListener("resize", function () {
+	    waitForFinalEvent(function(){
+	    	document.getElementById("isResized").innerHTML = true;	
+	    }, 500, "uniqueId");
+	});
+</script>
+</html>

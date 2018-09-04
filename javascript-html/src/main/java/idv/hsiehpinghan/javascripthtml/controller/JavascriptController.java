@@ -51,4 +51,15 @@ public class JavascriptController {
 	public String copyText() {
 		return "javascript/copyText";
 	}
+	
+	@RequestMapping(value = "/checkDevice", method = RequestMethod.GET)
+	public String checkDevice() {
+		return "javascript/checkDevice";
+	}
+	
+	@RequestMapping(value = "/triggerEventAfterResize", method = RequestMethod.GET)
+	public String triggerEventAfterResize() {
+		return "javascript/triggerEventAfterResize";
+	}
+	
 }
