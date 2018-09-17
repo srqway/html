@@ -8,10 +8,8 @@
 </head>
 <body>
 	<div id="map" style="width: 800px; height: 600px; border: 1px solid #ccc"></div>
-
-	<div><p>Badger badger badger badger badger badger badger<br> badger badger badger badger badger mushroom mushroom!<p>
-	<p>Badger badger badger badger badger badger badger<br> badger badger badger badger badger <button onclick='snake()'>SNAKE! IT'S A SNAKE!</button></p></div>
-
+	<br>
+	<button onclick='snake()'>run</button>
 	<script>
 		var route = [
 			[25.058792,121.61341],
@@ -138,41 +136,23 @@
 		for (var i = 0, latlngs = [], len = route.length; i < len; i++) {
 			latlngs.push(new L.LatLng(route[i][0], route[i][1]));
 		}
-
 		var path = L.polyline(latlngs);
-
 		var map = L.map('map');
-
-// 		var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-// 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-// 		}).addTo(map);
-
-
-
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiaHNpZWhwaW5naGFuIiwiYSI6ImNqanRxaWE2YTAzeWYzdnF1ejVtZXRxa2EifQ.uU23cf-VDsp2GefncgMGug', {
 			maxZoom: 18,
 			id: 'mapbox.streets'
 		}).addTo(map);
-
 		map.fitBounds(L.latLngBounds(latlngs));
-
 		map.addLayer(L.marker(latlngs[0]));
 		map.addLayer(L.marker(latlngs[len - 1]));
-
 		map.addLayer(path);
-
 		path.bindPopup("Hello world");
-
-
 		function snake() {
 			path.snakeIn();
 		}
-
 		path.on('snakestart snake snakeend', function(ev){
 			console.log(ev.type);
 		});
-
-
 	</script>
 </body>
 </html>
