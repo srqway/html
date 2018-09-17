@@ -17,15 +17,10 @@
 			maxZoom: 18,
 			id: 'mapbox.streets'
 		}).addTo(mymap);
-		
-		var circle = L.circle([25.0616509, 121.6], {
-		    color: 'red',
-		    fillColor: '#f03',
-		    fillOpacity: 0.5,
-		    radius: 500
-		}).addTo(mymap);		
-		circle.bindPopup("<b>this is a circle</b>").openPopup();
-		mymap.fitBounds(circle.getBounds());
+		var popup = L.popup()
+		    .setLatLng([latitude, longitude])
+		    .setContent('<p>this is popup.</p>')
+		    .openOn(mymap);
 	</script>
 </body>
 </html>

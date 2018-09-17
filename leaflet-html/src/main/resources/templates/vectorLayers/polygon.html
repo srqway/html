@@ -28,6 +28,7 @@
 		    fillOpacity: 0.5
 		}).addTo(mymap);
 		polygon.bindPopup("<b>this is a poygon</b>").openPopup();
+		mymap.fitBounds(polygon.getBounds());
 	</script>
 </body>
 </html>

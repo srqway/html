@@ -13,6 +13,11 @@ public class VectorLayersController {
 		return "vectorLayers/index";
 	}
 
+	@RequestMapping(value = "/polyline", method = RequestMethod.GET)
+	public String polyline() {
+		return "vectorLayers/polyline";
+	}
+
 	@RequestMapping(value = "/circle", method = RequestMethod.GET)
 	public String circle() {
 		return "vectorLayers/circle";

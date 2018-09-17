@@ -17,5 +17,10 @@ public class UiLayersController {
 	public String marker() {
 		return "uiLayers/marker";
 	}
-	
+
+	@RequestMapping(value = "/popup", method = RequestMethod.GET)
+	public String popup() {
+		return "uiLayers/popup";
+	}
+
 }

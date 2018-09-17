@@ -18,4 +18,9 @@ public class RasterLayersController {
 		return "rasterLayers/tileLayer";
 	}
 
+	@RequestMapping(value = "/imageOverlay", method = RequestMethod.GET)
+	public String imageOverlay() {
+		return "rasterLayers/imageOverlay";
+	}
+
 }
