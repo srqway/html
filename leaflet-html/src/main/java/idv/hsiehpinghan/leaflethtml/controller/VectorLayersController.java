@@ -17,15 +17,22 @@ public class VectorLayersController {
 	public String polyline() {
 		return "vectorLayers/polyline";
 	}
-
-	@RequestMapping(value = "/circle", method = RequestMethod.GET)
-	public String circle() {
-		return "vectorLayers/circle";
-	}
 	
 	@RequestMapping(value = "/polygon", method = RequestMethod.GET)
 	public String polygon() {
 		return "vectorLayers/polygon";
 	}
+
+	
+	@RequestMapping(value = "/rectangle", method = RequestMethod.GET)
+	public String rectangle() {
+		return "vectorLayers/rectangle";
+	}
+
+	@RequestMapping(value = "/circle", method = RequestMethod.GET)
+	public String circle() {
+		return "vectorLayers/circle";
+	}
+
 
 }
