@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dependency Tree Visualization</title>
+    <meta name="viewport" content="width=device-width">
+    <!-- <meta name="description" content="description here"> -->
+    <link rel="root" href=""/> <!-- for JS -->
+    <!-- Base jQuery-UI styles -->
+    <link rel="stylesheet" href="styles/jquery-ui-redmond.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- CSS for embedded visualizations -->
+    <link rel="stylesheet" href="styles/style-vis.css">
+
+    <!-- head.js, required for embedding -->
+    <script type="text/javascript" src="scripts/lib/ext/head.load.min.js"></script>
+
+    <style>
+        svg {
+            border: none;
+        }
+
+        .sentnum {
+            display: none;
+        }
+    </style>
+
+</head>
+
+
+<body>
+<pre style="margin: 10px;"><code class="language-conllx">
+1	从	从	p	p	_	7	状中结构	_	_
+2	分析	分析	v	vn	_	3	定中关系	_	_
+3	结果	结果	n	n	_	4	定中关系	_	_
+4	中	中	nd	f	_	1	介宾关系	_	_
+5	我们	我们	r	r	_	7	主谓关系	_	_
+6	可以	可以	v	v	_	7	状中结构	_	_
+7	看到	看到	v	v	_	0	核心关系	_	_
+8	，	，	wp	w	_	7	标点符号	_	_
+9	句子	句子	n	n	_	11	定中关系	_	_
+10	的	的	u	u	_	9	右附加关系	_	_
+11	核心	核心	n	n	_	12	定中关系	_	_
+12	谓词	谓词	n	n	_	13	主谓关系	_	_
+13	为	为	v	v	_	7	并列关系	_	_
+14	“	“	wp	w	_	15	标点符号	_	_
+15	提出	提出	v	v	_	13	动宾关系	_	_
+16	”	”	wp	w	_	15	标点符号	_	_
+17	，	，	wp	w	_	13	标点符号	_	_
+18	主语	主语	n	n	_	19	主谓关系	_	_
+19	是	是	v	v	_	13	并列关系	_	_
+20	“	“	wp	w	_	21	标点符号	_	_
+21	李克强	李克强	nh	nr	_	19	动宾关系	_	_
+22	”	”	wp	w	_	21	标点符号	_	_
+23	，	，	wp	w	_	19	标点符号	_	_
+24	提出	提出	v	v	_	26	定中关系	_	_
+25	的	的	u	u	_	24	右附加关系	_	_
+26	宾语	宾语	n	n	_	27	主谓关系	_	_
+27	是	是	v	v	_	19	并列关系	_	_
+28	“	“	wp	w	_	29	标点符号	_	_
+29	支持	支持	v	v	_	27	动宾关系	_	_
+30	上海	上海	ns	ns	_	29	动宾关系	_	_
+31	…	…	wp	w	_	29	标点符号	_	_
+32	”	”	wp	w	_	29	标点符号	_	_
+33	，	，	wp	w	_	27	标点符号	_	_
+34	“	“	wp	w	_	37	标点符号	_	_
+35	调研	调研	v	vn	_	37	定中关系	_	_
+36	…	…	n	n	_	35	动宾关系	_	_
+37	时	时	Ng	Ng	_	39	状中结构	_	_
+38	”	”	wp	w	_	37	标点符号	_	_
+39	是	是	v	v	_	27	并列关系	_	_
+40	“	“	wp	w	_	41	标点符号	_	_
+41	提出	提出	v	v	_	39	动宾关系	_	_
+42	”的 (时间) 状语	”的 (时间) 状语	n	n	_	41	动宾关系	_	_
+43	，	，	wp	w	_	41	标点符号	_	_
+44	“	“	wp	w	_	45	标点符号	_	_
+45	李克强	李克强	nh	nr	_	49	定中关系	_	_
+46	”	”	wp	w	_	45	标点符号	_	_
+47	的	的	u	u	_	45	右附加关系	_	_
+48	修饰	修饰	v	vn	_	49	定中关系	_	_
+49	语	语	Ng	Ng	_	50	主谓关系	_	_
+50	是	是	v	v	_	41	并列关系	_	_
+51	“	“	wp	w	_	53	标点符号	_	_
+52	国务院	国务院	ni	nt	_	53	定中关系	_	_
+53	总理	总理	n	n	_	50	动宾关系	_	_
+54	”	”	wp	w	_	53	标点符号	_	_
+55	，	，	wp	w	_	50	标点符号	_	_
+56	“	“	wp	w	_	57	标点符号	_	_
+57	支持	支持	v	v	_	60	定中关系	_	_
+58	”	”	wp	w	_	57	标点符号	_	_
+59	的	的	u	u	_	57	右附加关系	_	_
+60	宾语	宾语	n	n	_	61	主谓关系	_	_
+61	是	是	v	v	_	50	并列关系	_	_
+62	“	“	wp	w	_	63	标点符号	_	_
+63	探索 新机制	探索 新机制	v	v	_	61	动宾关系	_	_
+64	”	”	wp	w	_	63	标点符号	_	_
+</code></pre>
+</body>
+
+<!-- support for embedded visualizations -->
+<script type="text/javascript">
+    var root = 'scripts/'; // filled in by jekyll
+    head.js(
+        // External libraries
+        root + 'lib/ext/jquery.min.js',
+        root + 'lib/ext/jquery.svg.min.js',
+        root + 'lib/ext/jquery.svgdom.min.js',
+        root + 'lib/ext/jquery-ui.min.js',
+        root + 'lib/ext/waypoints.min.js',
+        // brat helper modules
+        root + 'lib/brat/configuration.js',
+        root + 'lib/brat/util.js',
+        root + 'lib/brat/annotation_log.js',
+        root + 'lib/ext/webfont.js',
+        // brat main modules
+        root + 'lib/brat/dispatcher.js',
+        root + 'lib/brat/url_monitor.js',
+        root + 'lib/brat/visualizer.js',
+        // external parsing libraries
+        root + 'lib/local/conllu.js',
+        // annotation documentation support
+        root + 'lib/local/annodoc.js',
+        // project-specific collection data
+        root + 'lib/local/collections.js',
+        // project-specific configuration
+        root + 'lib/local/config.js'
+    );
+
+    root = '';
+    var webFontURLs = [
+//    root + 'static/fonts/PT_Sans-Caption-Web-Regular.ttf',
+//    root + 'static/fonts/Liberation_Sans-Regular.ttf'
+    ];
+
+    head.ready(function () {
+        // mark current collection (filled in by Jekyll)
+        Collections.listing['_current'] = '';
+
+        // performs all embedding and support functions
+        Annodoc.activate(Config.bratCollData, Collections.listing);
+            });
+</script>
+</html>
